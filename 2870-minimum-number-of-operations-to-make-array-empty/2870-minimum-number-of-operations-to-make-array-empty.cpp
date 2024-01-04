@@ -10,7 +10,7 @@ public:
             if(it.second==1) {
                 return -1;
             }
-            ans += (it.second +2)/3;
+            ans += ceil((double)(it.second)/3);
         }
         return ans;
         
