@@ -12,16 +12,19 @@ public:
         }
         
         int res = 0;
-        int N = 1;
-        for (int i = 1; i < newCol.size(); ++i) {
-            if (newCol[i] != newCol[i - 1]) {
-                ++N;
-            } else {
-                N = 1;
+        int right = 1, left = 0;
+        while(right < newCol.size()) {
+            if(newCol[right] == newCol[right-1]) {
+                left = right;
+                right++;
+                continue;
             }
-            if (N >= k) {
-                ++res;
-            }
+            right++;
+            if(right - left < k) 
+              continue;
+
+            res++;
+            left++;  
         }
         
         return res;
